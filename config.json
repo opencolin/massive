@@ -1,0 +1,19 @@
+{
+  "models": ["chatgpt", "gemini", "perplexity", "copilot"],
+  "prompts": [
+    {
+      "id": "ai-coding-tools",
+      "text": "What are the best AI coding tools right now? List the top 10."
+    }
+  ],
+  "brands": [
+    { "name": "Cursor", "aliases": [] },
+    { "name": "Claude Code", "aliases": ["Claude code CLI"] },
+    { "name": "GitHub Copilot", "aliases": ["Copilot"] },
+    { "name": "Cline", "aliases": [] },
+    { "name": "Windsurf", "aliases": ["Codeium"] },
+    { "name": "Aider", "aliases": [] },
+    { "name": "Continue", "aliases": [] },
+    { "name": "Tabnine", "aliases": [] }
+  ]
+}
