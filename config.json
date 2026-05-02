@@ -9,7 +9,7 @@
   "brands": [
     { "name": "Cursor", "aliases": [] },
     { "name": "Claude Code", "aliases": ["Claude code CLI"] },
-    { "name": "GitHub Copilot", "aliases": ["Copilot"] },
+    { "name": "GitHub Copilot", "aliases": [] },
     { "name": "Cline", "aliases": [] },
     { "name": "Windsurf", "aliases": ["Codeium"] },
     { "name": "Aider", "aliases": [] },
