@@ -1,0 +1,23 @@
+date,prompt_id,model,brand,rank,first_index
+2026-05-02,ai-coding-tools,chatgpt,GitHub Copilot,1,262
+2026-05-02,ai-coding-tools,chatgpt,Cursor,2,475
+2026-05-02,ai-coding-tools,chatgpt,Claude Code,3,630
+2026-05-02,ai-coding-tools,chatgpt,Windsurf,4,845
+2026-05-02,ai-coding-tools,chatgpt,Aider,5,955
+2026-05-02,ai-coding-tools,chatgpt,Cline,6,1091
+2026-05-02,ai-coding-tools,chatgpt,Tabnine,7,1473
+2026-05-02,ai-coding-tools,gemini,Claude Code,1,385
+2026-05-02,ai-coding-tools,gemini,Cursor,2,786
+2026-05-02,ai-coding-tools,gemini,Windsurf,3,1180
+2026-05-02,ai-coding-tools,gemini,GitHub Copilot,4,1630
+2026-05-02,ai-coding-tools,gemini,Continue,5,2471
+2026-05-02,ai-coding-tools,gemini,Aider,6,3296
+2026-05-02,ai-coding-tools,perplexity,GitHub Copilot,1,108
+2026-05-02,ai-coding-tools,perplexity,Tabnine,2,208
+2026-05-02,ai-coding-tools,perplexity,Cursor,3,579
+2026-05-02,ai-coding-tools,perplexity,Windsurf,4,767
+2026-05-02,ai-coding-tools,copilot,Cursor,1,380
+2026-05-02,ai-coding-tools,copilot,Claude Code,2,631
+2026-05-02,ai-coding-tools,copilot,GitHub Copilot,3,860
+2026-05-02,ai-coding-tools,copilot,Windsurf,4,1059
+2026-05-02,ai-coding-tools,copilot,Tabnine,5,1943

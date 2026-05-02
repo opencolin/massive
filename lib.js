@@ -81,10 +81,60 @@ async function makeAiRequest(token, options) {
   return await response.json();
 }
 
+function stripHtml(s) {
+  if (typeof s !== "string") return "";
+  return s
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, " ")
+    .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, " ")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function extractResponseText(payload) {
+  if (typeof payload === "string") return stripHtml(payload);
+  if (payload == null) return "";
+  for (const key of ["completion", "response", "text", "content", "answer", "result"]) {
+    if (typeof payload[key] === "string") return stripHtml(payload[key]);
+  }
+  return JSON.stringify(payload);
+}
+
+function findFirstIndex(haystack, needle) {
+  if (!needle) return -1;
+  const escaped = needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = new RegExp(`\\b${escaped}\\b`, "i").exec(haystack);
+  return match ? match.index : -1;
+}
+
+function extractBrands(text, brands) {
+  const matched = [];
+  for (const brand of brands) {
+    const candidates = [brand.name, ...(brand.aliases || [])];
+    let best = -1;
+    for (const c of candidates) {
+      const idx = findFirstIndex(text, c);
+      if (idx >= 0 && (best === -1 || idx < best)) best = idx;
+    }
+    if (best >= 0) matched.push({ name: brand.name, first_index: best });
+  }
+  matched.sort((a, b) => a.first_index - b.first_index);
+  return matched.map((b, i) => ({ name: b.name, rank: i + 1, first_index: b.first_index }));
+}
+
 module.exports = {
   API_BASE,
   getApiToken,
   fetchWithRetry,
   fetchDevices,
   makeAiRequest,
+  stripHtml,
+  extractResponseText,
+  extractBrands,
 };
